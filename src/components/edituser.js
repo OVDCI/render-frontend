@@ -27,7 +27,7 @@ function Edituser(){
     const routeParams=useParams();
     const id=routeParams.id;
     function getsingledata(){
-        axios.get(`https://users-app-api.onrender.com/getsingleuser/${id}`).then(res=>{
+        axios.get(`http://localhost:5000/getsingleuser/${id}`).then(res=>{
             setnewdata({
                 Name:res.data.name,
                 Email:res.data.email,
@@ -48,7 +48,7 @@ function Edituser(){
             number:newdata.number
         }
         try{
-            axios.put(`http://localhost:4000/Edit/${id}`,updatedData);
+            axios.put(`http://localhost:5000/Edit/${id}`,updatedData);
             setnewdata({
                 Name:"",
                 Email:"",
@@ -61,7 +61,7 @@ function Edituser(){
     }
     function deleteuser(){
         try {
-            axios.delete(`http://localhost:4000/deleteuser/${id}`);
+            axios.delete(`http://localhost:5000/deleteuser/${id}`);
             alert("user deleted successfully !!!!");
             setnewdata({
                 Name:"",
